@@ -1,18 +1,10 @@
 <template>
-  <div id="nav">
-    <Nav />
-  </div>
   <router-view />
 </template>
 
 <script>
-import Nav from '@/components/Primary-nav.vue'
-
 export default {
   name: "App",
-  components: {
-    Nav
-  }
 };
 </script>
 
@@ -28,7 +20,7 @@ export default {
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 6.25rem;
   --fs-700: 3.5rem;
   --fs-600: 2rem;
@@ -43,14 +35,33 @@ export default {
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-400: 1.125rem;
+    }
+}
+
 /* ----------------- */
 /* Reset             */
 /* ----------------- */
 
 /* Box-sizing & margins */
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -73,7 +84,16 @@ body {
   color: hsl(var(--clr-white)) ;
   background-color:hsl(var(--clr-dark));
   line-height: 1.5;
+}
+
+.body-content {
+  /* put content in the all page */
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  background-size: cover;
+  background-position: bottom center;
 }
 
 /* make images easier to work with */
@@ -117,6 +137,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -125,6 +149,33 @@ select {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.grid-container {
+  text-align: center;
+  outline: solid 5px green;
+  display: grid;
+  place-items: center;
+}
+
+.grid-container > * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
+  }
+  .grid-container > *:first-child {
+  border: red solid 2px;
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+  border: yellow solid 2px;
+    grid-column: 3;
+  }
 }
 
 /* Screen reader */
@@ -202,7 +253,7 @@ select {
     border-color: hsl( var(--clr-white) / .25);
 }
 
-#nav a.router-link-exact-active {
+#nav-primary a.router-link-exact-active {
   border-color: hsl( var(--clr-white) / 1);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <!-- navigation -->
     <div>
-        <nav>
+        <nav id="nav-primary">
             <ul class="primary-navigation underline-indicators flex">
                 <router-link to="/" class="uppercase text-white letter-spacing-2" tag="li"><span class="primary-nav-span">00</span>Home</router-link>
                 <router-link to="/about" class="uppercase text-white letter-spacing-2" tag="li"><span class="primary-nav-span">01</span>Destination</router-link>
