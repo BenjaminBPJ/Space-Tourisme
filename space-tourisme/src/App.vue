@@ -94,6 +94,7 @@ body {
 
   background-size: cover;
   background-position: bottom center;
+  overflow: hidden;
 }
 
 /* make images easier to work with */
@@ -153,7 +154,6 @@ select {
 
 .grid-container {
   text-align: center;
-  outline: solid 5px green;
   display: grid;
   place-items: center;
 }
@@ -168,12 +168,10 @@ select {
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
   }
   .grid-container > *:first-child {
-  border: red solid 2px;
     grid-column: 2;
   }
 
   .grid-container > *:last-child {
-  border: yellow solid 2px;
     grid-column: 3;
   }
 }
@@ -251,9 +249,5 @@ select {
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
     border-color: hsl( var(--clr-white) / .25);
-}
-
-#nav-primary a.router-link-exact-active {
-  border-color: hsl( var(--clr-white) / 1);
 }
 </style>

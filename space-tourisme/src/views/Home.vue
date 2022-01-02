@@ -5,7 +5,8 @@
       <div>
         <img src="@/assets/shared/logo.svg" alt="Space tourism logo" />
       </div>
-      <!-- <Nav /> -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">menu</span></button>
+      <Nav id="primary-navigation"/> 
     </header>
 
     <!-- Main content -->
@@ -31,17 +32,38 @@
 
 <script>
 // @ is an alias to /src
-//import Nav from "@/components/Primary-nav.vue";
+import Nav from "@/components/Primary-nav.vue";
 
 export default {
   name: "Home",
   components: {
-    //Nav,
+    Nav,
   },
 };
 </script>
 
 <style scoped>
+/* burger menu */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 35em) {
+  .mobile-nav-toggle {
+      display: block;
+      position: absolute;
+      z-index: 200;
+      right: 1rem;
+      top: 2rem;
+      background: transparent;
+      background-image: url(../assets/shared/icon-hamburger.svg);
+      background-repeat: no-repeat;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      border: 0;
+  }
+}
+
 /* background image */
 .home {
   background-image: url(../assets/home/background-home-mobile.jpg);
