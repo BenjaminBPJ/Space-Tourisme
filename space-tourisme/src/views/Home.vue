@@ -24,7 +24,7 @@
         <a href="#" class="large-button uppercase ff-serif text-dark bg-white">Explore</a>
       </div>
     </main>
-    
+
   </div>
 </template>
 
@@ -64,6 +64,13 @@ export default {
   .grid-container-home {
     padding-bottom: 6rem;
     align-items: end;
+  }
+  .grid-container-home > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container-home > *:last-child {
+    grid-column: 3;
   }
 }
 

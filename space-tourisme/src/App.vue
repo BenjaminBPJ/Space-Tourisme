@@ -166,19 +166,12 @@ select {
     column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
   }
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-
-  .grid-container > *:last-child {
-    grid-column: 3;
-  }
 }
 
 @media (min-width: 55em) {
   .grid-container {
     column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 50rem)) minmax(2rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(1rem, 1fr);
   }
 }
 
@@ -258,5 +251,25 @@ select {
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
     border-color: hsl( var(--clr-white) / .25);
+    color: hsl( var(--clr-white));
+}
+
+.underline-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-white) / 1);
+    border-color: hsl( var(--clr-white) / 1);
+}
+
+/* numbered title */
+.numbered-title {
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+    margin-right: 0.5em;
+    font-weight: 700;
+    color: hsl(var(--clr-white) / 0.25);
 }
 </style>

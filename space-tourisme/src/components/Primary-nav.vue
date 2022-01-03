@@ -13,8 +13,8 @@
     <nav id="nav-primary">
       <ul id="primary-navigation" class="primary-navigation underline-indicators flex" data-visible="false">
         <router-link to="/" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">00</span>Home</router-link>
-        <router-link to="/about" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">01</span>Destination</router-link>
-        <router-link to="/about" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">02</span>Crew</router-link>
+        <router-link to="/destination" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">01</span>Destination</router-link>
+        <router-link to="/crew" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">02</span>Crew</router-link>
         <router-link to="/tech" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">03</span>Technology</router-link>
       </ul>
     </nav>
@@ -68,6 +68,7 @@ export default {
 .mobile-nav-toggle {
   display: none;
 }
+
 /* mobile nav setup */
 @media (max-width: 35em) {
   .primary-navigation {
@@ -126,7 +127,7 @@ export default {
 
 @media (min-width: 35em) and (max-width: 45em) {
   .primary-navigation {
-    padding-inline: 2rem;
+    padding-inline: 1rem;
   }
 
   .primary-nav-span {
