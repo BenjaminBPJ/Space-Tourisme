@@ -1,16 +1,13 @@
 <template>
   <div class="body-content home">
+
     <!-- Header, logo + nav -->
-    <header class="primary-header flex">
-      <div>
-        <img src="@/assets/shared/logo.svg" alt="Space tourism logo" />
-      </div>
-      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">menu</span></button>
-      <Nav id="primary-navigation"/> 
+    <header>
+      <Nav/> 
     </header>
 
     <!-- Main content -->
-    <div class="grid-container grid-container-home">
+    <main id="main" class="grid-container grid-container-home">
       <div>
         <h1 class="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
           So, you want to travel to
@@ -26,7 +23,8 @@
       <div>
         <a href="#" class="large-button uppercase ff-serif text-dark bg-white">Explore</a>
       </div>
-    </div>
+    </main>
+    
   </div>
 </template>
 
@@ -38,32 +36,11 @@ export default {
   name: "Home",
   components: {
     Nav,
-  },
+  }
 };
 </script>
 
 <style scoped>
-/* burger menu */
-.mobile-nav-toggle {
-  display: none;
-}
-
-@media (max-width: 35em) {
-  .mobile-nav-toggle {
-      display: block;
-      position: absolute;
-      z-index: 200;
-      right: 1rem;
-      top: 2rem;
-      background: transparent;
-      background-image: url(../assets/shared/icon-hamburger.svg);
-      background-repeat: no-repeat;
-      width: 1.5rem;
-      aspect-ratio: 1;
-      border: 0;
-  }
-}
-
 /* background image */
 .home {
   background-image: url(../assets/home/background-home-mobile.jpg);
@@ -81,6 +58,7 @@ export default {
     background-image: url(../assets/home/background-home-desktop.jpg);
   }
 }
+
 /* home main content position in large screen */
 @media (min-width: 45em) {
   .grid-container-home {

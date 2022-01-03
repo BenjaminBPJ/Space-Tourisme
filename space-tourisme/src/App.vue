@@ -94,7 +94,6 @@ body {
 
   background-size: cover;
   background-position: bottom center;
-  overflow: hidden;
 }
 
 /* make images easier to work with */
@@ -176,6 +175,13 @@ select {
   }
 }
 
+@media (min-width: 55em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 50rem)) minmax(2rem, 1fr);
+  }
+}
+
 /* Screen reader */
 .sr-only {
   position: absolute;
@@ -237,6 +243,9 @@ select {
 .fs-600 {
     line-height: 1.1;
 }
+/* ------------------------ */
+/* Specifics properties     */
+/* ------------------------ */
 
 /* underlines for nav and titles */
 .underline-indicators > * {
