@@ -18,10 +18,10 @@
     
       <!-- Tab list  -->
       <div class="tab-list underline-indicators flex">
-        <button aria-selected="true" class="tab-button uppercase ff-sans-cond text-accent letter-spacing-2">Moon</button>
-        <button aria-selected="false" class="tab-button uppercase ff-sans-cond text-accent letter-spacing-2">Mars</button>
-        <button aria-selected="false" class="tab-button uppercase ff-sans-cond text-accent letter-spacing-2">Europa</button>
-        <button aria-selected="false" class="tab-button uppercase ff-sans-cond text-accent letter-spacing-2">Titan</button>
+        <button aria-selected="true" class="uppercase ff-sans-cond text-accent letter-spacing-2">Moon</button>
+        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Mars</button>
+        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Europa</button>
+        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Titan</button>
       </div> 
 
       <!-- Planet description -->
@@ -101,10 +101,6 @@ export default {
 
 .tab-list {
     grid-area: tabs;
-}
-
-.tab-button {
-    background: transparent;
 }
 
 .destination-info {
