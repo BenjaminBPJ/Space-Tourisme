@@ -14,7 +14,10 @@
       <span aria-hiden="true">01</span>
       Meet your crew</h1>
 
-      <img src="@/assets/crew/image-douglas-hurley.png" alt="Douglas Hurley" class="crew-image">
+      <picture class="crew-image">
+        <source srcset="@/assets/crew/image-douglas-hurley.png" type="image/webp" class="img-crew">
+        <img src="@/assets/crew/image-douglas-hurley.png" alt="Douglas Hurley" class="img-crew">
+      </picture>
 
       <!-- Dots -->
       <div class="dot-indicators flex">
@@ -73,6 +76,7 @@ export default {
 
 /* layout */
 .grid-container-crew {
+    --flow-space: 1.5rem;
     grid-template-areas: 
         'title'
         'image'
@@ -86,7 +90,9 @@ export default {
 
 .crew-image {
     grid-area: image;
-    height: 60%;
+    height: 90%;
+    margin-bottom: 1rem;
+    display: inline-grid;
 }
 
 /* interactive dot list */
@@ -127,17 +133,11 @@ article header {
 @media (min-width: 35em) {
     .crew {
         height: 100vh;
-        overflow: hidden;
+        overflow: hidden;    
     }
 
-    .numbered-title {
-        justify-self: start;
-        margin-top: 2rem;
-        margin-left: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
     .grid-container-crew {
+        --flow-space: 1rem;
         grid-template-areas: 
             'title'
             'content'
@@ -145,19 +145,22 @@ article header {
             'image';
         padding-bottom: 0;
     }
-    .crew-image {
-        height: 70%;
+
+    .numbered-title {
+        justify-self: start;
+        margin-left: 1.5rem;
     }
 
-    .crew-details {
-    padding-bottom: 1rem;
+    .crew-image {
+        height: 100%;
+        margin-bottom: 0;
     }
 }
 
 @media (min-width: 45em) {  
     .grid-container-crew {
         grid-template-areas: 
-            '. title title .'
+            '. title image .'
             '. content image .'
             '. dots image .';
         text-align: left;
@@ -178,16 +181,9 @@ article header {
     .dot-indicators > * {
         padding: 0.4em;
     }
-    
-    .crew-image {
+
+    .img-crew {
         align-self: end;
     }
 }
-
-@media (min-width: 55em) {  
-    .crew-image {
-        height: 90%;
-    }
-}
-
 </style>

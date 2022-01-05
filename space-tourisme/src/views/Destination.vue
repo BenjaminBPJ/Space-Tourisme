@@ -14,18 +14,33 @@
       <span aria-hiden="true">01</span>
       Pick your destination</h1>
 
-      <img src="@/assets/destination/image-moon.png" alt="the moon" class="destination-image">
+    <picture id="moon-image" v-if="showMoon">
+      <source srcset="@/assets/destination/image-moon.webp" type="image/webp">
+      <img src="@/assets/destination/image-moon.png" alt="the moon">
+    </picture>
+    <picture id="mars-image" v-if="showMars">
+      <source srcset="@/assets/destination/image-mars.webp" type="image/webp">
+      <img src="@/assets/destination/image-mars.png" alt="the planet mars">
+    </picture>
+    <picture id="europa-image" v-if="showEuropa">
+      <source srcset="@/assets/destination/image-europa.webp" type="image/webp">
+      <img src="@/assets/destination/image-europa.png" alt="the planet europa">
+    </picture>
+    <picture id="titan-image" v-if="showTitan">
+      <source srcset="@/assets/destination/image-titan.webp" type="image/webp">
+      <img src="@/assets/destination/image-titan.png" alt="the moon titan">
+    </picture> 
     
       <!-- Tab list  -->
-      <div class="tab-list underline-indicators flex">
-        <button aria-selected="true" class="uppercase ff-sans-cond text-accent letter-spacing-2">Moon</button>
-        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Mars</button>
-        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Europa</button>
-        <button aria-selected="false" class="uppercase ff-sans-cond text-accent letter-spacing-2">Titan</button>
+      <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination">
+        <button aria-selected="true" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" @click="showMoon=true, showMars=false, showEuropa=false, showTitan=false" @focus="getTabHighlight">Moon</button>
+        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" @click="showMoon=false, showMars=true, showEuropa=false, showTitan=false" @focus="getTabHighlight">Mars</button>
+        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" @click="showMoon=false, showMars=false, showEuropa=true, showTitan=false" @focus="getTabHighlight">Europa</button>
+        <button aria-selected="false" role="tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" @click="showMoon=false, showMars=false, showEuropa=false, showTitan=true" @focus="getTabHighlight">Titan</button>
       </div> 
 
-      <!-- Planet description -->
-      <article class="destination-info">
+      <!-- Moon description -->
+      <article id="moon-tab" class="destination-info" v-if="showMoon">
         <h2 class="fs-800 uppercase ff-serif planet-name">Moon</h2>
 
         <p>See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
@@ -44,6 +59,67 @@
         </div>
       </article>
 
+      <!-- Mars description -->
+      <article id="mars-tab" class="destination-info" v-if="showMars">
+        <h2 class="fs-800 uppercase ff-serif planet-name">Mars</h2>
+
+        <p>Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+          the tallest planetary mountain in our solar system. It’s two and a half times 
+          the size of Everest!</p>
+      
+        <div class="destination-meta flex">
+            <div>
+                <h3 class="text-accent fs-200 uppercase">Avg. distance</h3>
+                <p class="ff-serif uppercase">225 mil. km</p>
+            </div>
+            <div>
+                <h3 class="text-accent fs-200 uppercase">Est. travel time</h3>
+                <p class="ff-serif uppercase">9 months</p>
+            </div>
+        </div>
+      </article>
+
+      <!-- Europa description -->
+      <article id="europa-tab" class="destination-info" v-if="showEuropa">
+        <h2 class="fs-800 uppercase ff-serif planet-name">Europa</h2>
+
+        <p>The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
+          winter lover’s dream. With an icy surface, it’s perfect for a bit of 
+          ice skating, curling, hockey, or simple relaxation in your snug 
+          wintery cabin.</p>
+      
+        <div class="destination-meta flex">
+            <div>
+                <h3 class="text-accent fs-200 uppercase">Avg. distance</h3>
+                <p class="ff-serif uppercase">384,400 km</p>
+            </div>
+            <div>
+                <h3 class="text-accent fs-200 uppercase">628 mil. km</h3>
+                <p class="ff-serif uppercase">3 years</p>
+            </div>
+        </div>
+      </article>
+
+      <!-- Titan description -->
+      <article id="titan-tab" class="destination-info" v-if="showTitan">
+        <h2 class="fs-800 uppercase ff-serif planet-name">Titan</h2>
+
+        <p>The only moon known to have a dense atmosphere other than Earth, Titan 
+          is a home away from home (just a few hundred degrees colder!). As a 
+          bonus, you get striking views of the Rings of Saturn.</p>
+      
+        <div class="destination-meta flex">
+            <div>
+                <h3 class="text-accent fs-200 uppercase">Avg. distance</h3>
+                <p class="ff-serif uppercase">1.6 bil. km</p>
+            </div>
+            <div>
+                <h3 class="text-accent fs-200 uppercase">Est. travel time</h3>
+                <p class="ff-serif uppercase">7 years</p>
+            </div>
+        </div>
+      </article>
+
     </main>   
   </div>
 </template>
@@ -56,8 +132,28 @@ export default {
   name: "Destination",
   components: {
     Nav,
+  },
+  data () {
+      return {
+        showMoon: true,
+        showMars: false,
+        showEuropa: false,
+        showTitan: false
+      }
+  },
+  methods: {
+    getTabHighlight: function (e) {      
+        const targetTab = e.target;
+        const tabContainer = targetTab.parentNode;
+    
+        tabContainer
+            .querySelector('[aria-selected="true"]')
+            .setAttribute("aria-selected", false);
+
+        targetTab.setAttribute("aria-selected", true);
+    }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -93,9 +189,8 @@ export default {
     grid-area: title;
 }
 
-.destination-image {
+picture {
     grid-area: image;
-    display: inline-grid;
     max-width: 60%;
 }
 
@@ -145,7 +240,7 @@ export default {
         margin-left: 0;
     }
 
-    .destination-image {
+    picture {
         max-width: 100%;
     }
 
