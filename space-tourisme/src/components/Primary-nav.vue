@@ -15,7 +15,7 @@
         <router-link to="/" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">00</span>Home</router-link>
         <router-link to="/destination" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">01</span>Destination</router-link>
         <router-link to="/crew" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">02</span>Crew</router-link>
-        <router-link to="/tech" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">03</span>Technology</router-link>
+        <router-link to="/technology" class="uppercase text-white letter-spacing-2" tag="li" ><span class="primary-nav-span" aria-hidden="true">03</span>Technology</router-link>
       </ul>
     </nav>
 
