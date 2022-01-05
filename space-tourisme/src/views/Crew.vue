@@ -14,21 +14,25 @@
       <span aria-hiden="true">01</span>
       Meet your crew</h1>
 
+      <!-- commander image  -->
       <picture class="crew-image" v-if="showCommander">
         <source srcset="@/assets/crew/image-douglas-hurley.png" type="image/webp" class="img-crew">
         <img src="@/assets/crew/image-douglas-hurley.png" alt="Douglas Hurley" class="img-crew">
       </picture>
+      <!-- specialist image  -->
       <picture class="crew-image" v-if="showSpecialist">
         <source srcset="@/assets/crew/image-mark-shuttleworth.png" type="image/webp" class="img-crew">
-        <img src="@/assets/crew/image-mark-shuttleworth.png" alt="Douglas Hurley" class="img-crew">
+        <img src="@/assets/crew/image-mark-shuttleworth.png" alt="Mark Shuttleworth" class="img-crew">
       </picture>
+      <!-- pilot image  -->
       <picture class="crew-image" v-if="showPilot">
         <source srcset="@/assets/crew/image-victor-glover.png" type="image/webp" class="img-crew">
-        <img src="@/assets/crew/image-victor-glover.png" alt="Douglas Hurley" class="img-crew">
+        <img src="@/assets/crew/image-victor-glover.png" alt="Victor Glover" class="img-crew">
       </picture>
+      <!-- engineer image  -->
       <picture class="crew-image" v-if="showEngineer">
         <source srcset="@/assets/crew/image-anousheh-ansari.png" type="image/webp" class="img-crew">
-        <img src="@/assets/crew/image-anousheh-ansari.png" alt="Douglas Hurley" class="img-crew">
+        <img src="@/assets/crew/image-anousheh-ansari.png" alt="Anousheh Ansari" class="img-crew">
       </picture>
 
       <!-- Dots -->
@@ -38,7 +42,8 @@
         <button aria-selected="false" @click="showCommander=false, showSpecialist=false, showPilot=true, showEngineer=false" @focus="getTabHighlight"><span class="sr-only" >The pilot</span></button>
         <button aria-selected="false" @click="showCommander=false, showSpecialist=false, showPilot=false, showEngineer=true" @focus="getTabHighlight"><span class="sr-only" >The crew engineer</span></button>
       </div>
-      <!-- member description -->
+
+      <!-- commander description -->
       <article class="crew-details flow" v-if="showCommander">
         <header class="flow">
           <h2 class="crew-grade uppercase ff-serif fs-600">Commander</h2> 
@@ -50,7 +55,7 @@
         </p>
       </article>
 
-        <!-- member description -->
+        <!-- specialist description -->
       <article class="crew-details flow" v-if="showSpecialist">
         <header class="flow">
           <h2 class="crew-grade uppercase ff-serif fs-600">Mission Specialist</h2> 
@@ -62,7 +67,7 @@
         </p>
       </article>
 
-        <!-- member description -->
+        <!-- pilot description -->
       <article class="crew-details flow" v-if="showPilot">
         <header class="flow">
           <h2 class="crew-grade uppercase ff-serif fs-600">Pilot</h2> 
@@ -75,7 +80,7 @@
         </p>
       </article>
 
-        <!-- member description -->
+        <!-- engineer description -->
       <article class="crew-details flow" v-if="showEngineer">
         <header class="flow">
           <h2 class="crew-grade uppercase ff-serif fs-600">Flight Engineer</h2> 
